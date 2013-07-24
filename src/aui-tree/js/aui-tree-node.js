@@ -1,3 +1,5 @@
+YUI.add('aui-tree-node', function (A, NAME) {
+
 /**
  * The TreeNode Utility
  *
@@ -57,6 +59,7 @@ var Lang = A.Lang,
 	SIGN = 'sign',
 	OPEN = 'open',
 	CHECK = 'check',
+	UNCHECKED = 'unchecked',
 
 	isTreeNode = function(v) {
 		return ( v instanceof A.TreeNode );
@@ -89,6 +92,7 @@ var Lang = A.Lang,
 	CSS_ICON_ICON_REFRESH = getCN(ICON, REFRESH),
 	CSS_ICON_OK_SIGN = getCN(ICON, OK, SIGN),
 	CSS_ICON_CHECK = getCN(ICON, CHECK),
+	CSS_ICON_CHECK_EMPTY = getCN(ICON, UNCHECKED)
 
 	HIT_AREA_TPL = '<i class="'+CSS_TREE_HITAREA+'"></i>',
 	ICON_TPL = '<i class="'+CSS_TREE_ICON+'"></i>',
@@ -173,14 +177,14 @@ var TreeNode = A.Component.create(
 						iconHitAreaExpanded: [ CSS_TREE_HITAREA, CSS_ICON_ICON_MINUS ].join(SPACE),
 						iconLeaf: CSS_ICON_ICON_FILE,
 						iconLoading: CSS_ICON_ICON_REFRESH,
-						iconUncheck: CSS_ICON_CHECK
+						iconUncheck: CSS_ICON_CHECK_EMPTY
 					},
 					normal: {
 						iconCheck: CSS_ICON_CHECK,
 						iconHitAreaCollapsed: [ CSS_TREE_HITAREA, CSS_ICON_ICON_PLUS ].join(SPACE),
 						iconHitAreaExpanded: [ CSS_TREE_HITAREA, CSS_ICON_ICON_MINUS ].join(SPACE),
 						iconLoading: CSS_ICON_ICON_REFRESH,
-						iconUncheck: CSS_ICON_CHECK
+						iconUncheck: CSS_ICON_CHECK_EMPTY
 					}
 				}
 			},
@@ -1866,3 +1870,5 @@ A.TreeNode.nodeTypes = {
 	node: A.TreeNode,
 	io: A.TreeNodeIO
 };
+
+}, '2.0.0pr6', {"requires": ["json", "querystring-stringify", "aui-tree-data", "aui-tree-io", "aui-tree-paginator"]});
